@@ -14,9 +14,7 @@ $(document).ready(function(){
                 $(".block1").css({"width": $width/2,"height": $height/2});
                 clone = $(".block1").clone();
                 clone.appendTo("body"); 
-             });
-       
-            
+             });      
 }
         ClickBlock();
 });
