@@ -1,18 +1,21 @@
 $(document).ready(function(){
-        function ClickBlock(w, h){
-            $(".block1, .block2").on("click",function(){
-                $(".block1").addClass("block3");
-                $(".block2").addClass("block3");
-                $("body").addClass("body1");
-                // $(".block1").removeClass("block1");
-                // $(".block2").removeClass("block2");
+    var widthBlock = '400';
+    var heightBlock = '400';
 
+        $(".block1").css({"width":widthBlock,"height": heightBlock});
+        
+        function ClickBlock(){
+            // var widths =  $(".block1").css.width;
+            $width = $('.block1').width();
+            $height = $('.block1').height();
+            $(".block1").on("click",function(){
+                $("body").addClass('body1');
+                var clone ;
+                $(".block1").css({"width": $width/2,"height": $height/2});
+                clone = $(".block1").clone();
+                clone.appendTo("body"); 
              });
-             var parent = $(".block4").parent()
-            $(".block4").on("click",function(){
-                 $(".block1").removeClass('block3');
-
-             });
+            
 }
         ClickBlock();
 });
