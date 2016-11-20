@@ -15,13 +15,7 @@ $(document).ready(function(){
                 clone = $(".block1").clone();
                 clone.appendTo("body"); 
              });
-            $(".block1").on("click",function(){
-                $("body").addClass('body1');
-                var clone ;
-                $(".block1").css({"width": $width/2,"height": $height/2});
-                clone = $(".block1").clone();
-                clone.appendTo("body"); 
-             });
+       
             
 }
         ClickBlock();
