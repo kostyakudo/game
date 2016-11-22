@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <div class="block1">
-         
-    </div>
 
-</body>
-</html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			width: 1200px;
+			height: 1200px;
+			display: flex;
+			flex-direction: r;
+			justify-content: center;
+			align-content: center;
+		}
+		
+		.block {
+			width: 500px;
+			height: 500px;
+			background-color: yellow;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+
+			function Click() {
+
+				$('.block').on('click', foo);
+
+				function foo() {
+					var r = Math.floor(Math.random() * (256));
+					var g = Math.floor(Math.random() * (256));
+					var b = Math.floor(Math.random() * (256));
+					var c = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+					$width = $(this).width();
+					$height = $(this).height();
+					$(this).replaceWith('<div class="block"></div><div class="block"></div>');
+					$('.block').css({
+						width: $width / 2,
+						height: $height / 2,
+						backgroundColor: c,
+						margin: '5px'
+					});
+
+					if ($width >= 50) {
+						$(".block").on('click', foo);
+					}
+					$(".block").removeClass("block");
+				};
