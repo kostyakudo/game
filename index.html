@@ -2,79 +2,70 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		body {
-			margin: 0 auto;
-    height: 600px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-		}
-		
-		.block {
-			margin: 0 auto;
-			width: 300px;
-			height: 300px;
-			background-color: yellow;
-		}
-
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script>
-		$(document).ready(function() {
-
-
-			function Click() {
-
-				$('.block').on('click', foo);
-
-				function foo() {
-					var r = Math.floor(Math.random() * (256));
-					var g = Math.floor(Math.random() * (256));
-					var b = Math.floor(Math.random() * (256));
-					var c = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-					$width = $(this).width();
-					$height = $(this).height();
-					$(this).replaceWith('<div class="block"></div><div class="block"></div>');
-					$('.block').css({
-						width: $width / 2,
-						height: $height / 2,
-						backgroundColor: c,
-						margin: '5px',
-						border: '1px solid black'
-					});
-
-					if ($width >= 50) {
-						$(".block").on('click', foo);
-					}
-					$(".block").removeClass("block");
-				};
-				//					
-				//					
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            height: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #447776;
+        }
+        
+        .block {
+            margin: 0 auto;
+/*
+            width: 300px;
+            height: 300px;
+*/
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Click(x= +prompt('size')) {
+                $('.block').on('click', foo);
+                $('.block').css({
+                    width: x + 'px',
+                    height: x + 'px'
+                })
 
 
-
-
-
-
-
-
-
-			}
-
-			Click();
-
-		})
-
-	</script>
+                function foo() {
+                    var r = Math.floor(Math.random() * (256));
+                    var g = Math.floor(Math.random() * (256));
+                    var b = Math.floor(Math.random() * (256));
+                    var c = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+                    $width = $(this).width();
+                    $height = $(this).height();
+                    $(this).replaceWith('<div class="block"></div><div class="block"></div>');
+                    $('.block').css({
+                        width: $width / 2,
+                        height: $height / 2,
+                        backgroundColor: c,
+                        margin: '5px',
+                        border: '1px solid black'
+                    });
+                    if ($width >= 50) {
+                        $(".block").on('click', foo);
+                    }
+                    $(".block").removeClass("block");
+                };
+                //					
+                //					
+            }
+            Click();
+        })
+    </script>
 </head>
 
 <body>
-	<div class="block"></div>
+    <div class="block"></div>
 </body>
 
 </html>
